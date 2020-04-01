@@ -1,5 +1,5 @@
 #-*-coding:utf-8-*-
-#-*-coding:utf-8-*-
+
 #自定义服务端端口号，要发送的文件
 #根据命令行参数判断为服务端还是客户端-s -c
 #xx.py -s <filename> <port>

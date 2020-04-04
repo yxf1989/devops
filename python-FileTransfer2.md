@@ -1,6 +1,7 @@
 ```python
 import sys,os
 from socket import *
+from time import sleep
 
 def file_server(port=9527):
   server=socket()
@@ -9,6 +10,7 @@ def file_server(port=9527):
   c,addr=server.accept()
   filename=c.recv(1024)
   if os.path.exists(filename):
+    c.send("file_exits")
     file=open(filename,"rb")
     while 1:
       data=file.read(1024)
@@ -28,14 +30,17 @@ def file_client(server_ip="",server_port=9527):
   client.connect((server_ip,int(server_port)))
   filename=input("file to receive:")
   client.send(filename)
-  list=filename.split("/")
-  f=open(list[-1],"wb")
-  while 1:
-    data=client.recv(1024)
-    if not data:
-      break
-    f.write(data)
-  f.close()
+  if client.recv(1024)=="file_exits":
+	  list=filename.split("/")
+  	f=open(list[-1],"wb")
+    while 1:
+      data=client.recv(1024)
+      if not data:
+        break
+      f.write(data)
+    f.close()
+	else:
+    print("file not exist")
   client.close()
 
 def main():

@@ -1,3 +1,4 @@
+```python
 #-*-coding:utf-8-*-
 
 #自定义服务端端口号，要发送的文件
@@ -67,3 +68,4 @@ except (IndexError):
 接收端语法：#xx.py -c  <server_ip> <server_port>
   '''
   )
+```

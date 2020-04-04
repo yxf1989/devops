@@ -39,7 +39,7 @@ def file_client(server_ip="",server_port=9527):
         break
       f.write(data)
     f.close()
-	else:
+  else:
     print("file not exist")
   client.close()
 

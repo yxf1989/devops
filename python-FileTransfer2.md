@@ -1,7 +1,6 @@
 ```python
 import sys,os
 from socket import *
-from time import sleep
 
 def file_server(port=9527):
   server=socket()
